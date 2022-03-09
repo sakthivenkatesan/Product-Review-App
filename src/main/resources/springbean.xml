@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="product1" class="ProjectReviewApp.Financial_Product">
+	<constructor-arg ref="review"/>
+	
+	<property name="financial_productid" value="1001" />
+	<property name="financial_productname" value="A sweatshirt" />
+	<property name="description" value="A polka-dot printed sweatshirt" />
+	<property name="rating" value="3" />
+</bean>
+
+<bean id="comment" class="ProjectReviewApp.Comment">
+	<property name="comment_id" value="101" />
+	<property name="comment_text" value="Worst product. Never buy" />
+	<property name="likes" value="36" />
+	<property name="dislikes" value="3" />
+	<property name="report" value="true" />
+</bean> 
+
+<bean id="comment1" class="ProjectReviewApp.Comment">
+	<property name="comment_id" value="102" />
+	<property name="comment_text" value="Good buy" />
+	<property name="likes" value="17" />
+	<property name="dislikes" value="43" />
+	<property name="report" value="false" />
+</bean> 
+
+<bean id="comment2" class="ProjectReviewApp.Comment">
+	<property name="comment_id" value="103" />
+	<property name="comment_text" value="Print in the shirt seems pretty" />
+	<property name="likes" value="26" />
+	<property name="dislikes" value="08" />
+	<property name="report" value="true" />
+</bean> 
+<bean id="user" class="ProjectReviewApp.User">
+	<property name="username" value="AAA" />
+	<property name="emailid" value="aaa@gmail.com" />
+	<property name="password" value="aaa!007" />
+	<property name="mobileno" value="978965413" />
+</bean>
+<bean id="review" class="ProjectReviewApp.Review">
+	<property name="reviewid" value="1"/>
+	<property name="product_reviewed" ref="product1"/>
+	<property name="review_text" value="Size was not at all perfect"/>
+	<property name="comments">
+		<list>
+			<ref bean="comment"/>
+			<ref bean="comment1"/>
+			<ref bean="comment2"/>
+		</list>
+	</property>
+</bean>
+</beans>
